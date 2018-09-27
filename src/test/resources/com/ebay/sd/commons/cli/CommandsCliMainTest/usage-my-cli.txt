@@ -1,0 +1,10 @@
+usage: my-cli <CMD> [OPTIONS]
+
+My Command Line Dummy Tool
+
+Options:
+ -h,--help   Show this help
+
+Commands:
+ 1-cmd     First level command 1
+ 2-route   First level route 2

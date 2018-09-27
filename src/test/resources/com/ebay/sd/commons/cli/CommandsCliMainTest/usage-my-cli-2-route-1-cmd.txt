@@ -1,0 +1,10 @@
+usage: my-cli 2-route 2-1-cmd [OPTIONS] [<ARG1>...]
+
+Command 1 of route 2
+
+Options:
+ -h,--help         Show this help
+    --opt1 <arg>
+
+Arguments:
+ ARG1   Argument 1

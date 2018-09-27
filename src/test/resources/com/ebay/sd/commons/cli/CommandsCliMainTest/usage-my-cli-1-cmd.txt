@@ -1,0 +1,6 @@
+usage: my-cli 1-cmd [OPTIONS]
+
+First level command 1
+
+Options:
+ -h,--help   Show this help
