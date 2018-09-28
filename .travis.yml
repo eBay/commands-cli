@@ -1,0 +1,13 @@
+language: java
+# Use Ubuntu Percise explicitly to enable using Oracle JDK7
+# See: https://github.com/travis-ci/travis-ci/issues/7884
+dist: precise
+jdk:
+  - oraclejdk7
+before_install:
+  # Enable using aliases in a non-interactive bash script
+  # See: https://github.com/travis-ci/travis-ci/issues/2552
+  - shopt -s expand_aliases
+  # Since using JDK7 - prevent error downloading from Maven Central: Received fatal alert: protocol_version
+  # See: https://central.sonatype.org/articles/2018/May/04/discontinued-support-for-tlsv11-and-below/
+  - alias mvn='mvn -Dhttps.protocols=TLSv1.2'
