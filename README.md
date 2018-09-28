@@ -1,7 +1,7 @@
 # commands-cli
 
 [![Build Status](https://travis-ci.org/eBay/commands-cli.svg?branch=master)](https://travis-ci.org/eBay/commands-cli)
-[![GitHub](https://img.shields.io/github/license/ebay/commands-cli.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![GitHub](https://img.shields.io/github/license/ebay/commands-cli.svg)](LICENSE.txt)
 
 An opinionated extension to the [Apache Commons CLI](https://commons.apache.org/proper/commons-cli/) library which adds support for commands.
 
