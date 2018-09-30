@@ -11,3 +11,7 @@ before_install:
   # Since using JDK7 - prevent error downloading from Maven Central: Received fatal alert: protocol_version
   # See: https://central.sonatype.org/articles/2018/May/04/discontinued-support-for-tlsv11-and-below/
   - alias mvn='mvn -Dhttps.protocols=TLSv1.2'
+script: mvn verify -B
+after_success:
+  # -- Codacy --
+  - mvn codacy:coverage -B
