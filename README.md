@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/eBay/commands-cli.svg?branch=master)](https://travis-ci.org/eBay/commands-cli)
 [![Code Quality](https://api.codacy.com/project/badge/Grade/1b1f6836a8b74f56b212f53b281215ee)](https://www.codacy.com/app/eBay/commands-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eBay/commands-cli&amp;utm_campaign=Badge_Grade)
+[![Code Coverage](https://api.codacy.com/project/badge/Coverage/1b1f6836a8b74f56b212f53b281215ee)](https://www.codacy.com/app/eBay/commands-cli?utm_source=github.com&utm_medium=referral&utm_content=eBay/commands-cli&utm_campaign=Badge_Coverage)
 [![GitHub](https://img.shields.io/github/license/ebay/commands-cli.svg)](LICENSE.txt)
 
 An opinionated extension to the [Apache Commons CLI](https://commons.apache.org/proper/commons-cli/) library which adds support for commands.
@@ -12,11 +13,11 @@ Extends the Apache Commons CLI, adding the following features:
 
 * Command arguments parsing and validation
 * Simple command execution pattern:
-  ```bash
+  ```
   my-cli [OPTIONS] [ARGS]
   ```
 * Complex command routing patterns, e.g. git-flow style:
-  ```bash
+  ```
   git flow feature start <NAME>
   git flow feature finish <NAME> 
   git flow release start <VERSION>
@@ -24,7 +25,7 @@ Extends the Apache Commons CLI, adding the following features:
   git flow support start <VERSION> <TAG>
   ```  
 * Built-in usage help option for every route and command:
-  ```bash
+  ```
   $ my-cli --help
   usage: my-cli [OPTIONS]
 
@@ -96,11 +97,11 @@ The example above defines a simple command line interface which has a single opt
 The actual execution is done by the command class `MyCommand`.  
 To invoke it from the command line (assuming `my-cli` is an executable/script which invokes `main`), 
 a user shall use the following usage pattern:
-```bash
+```
 my-cli [OPTIONS] FILE
 ```
 For example, with verbosity flag turned on: 
-```bash
+```
 my-cli --verbose path/to/file
 ```
 
