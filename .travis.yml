@@ -15,3 +15,9 @@ script: mvn verify -B
 after_success:
   # -- Codacy --
   - mvn codacy:coverage -B
+deploy:
+  provider: script
+  script: mvn deploy -s .travis/bintray-settings.xml -DskipTests -B
+  skip_cleanup: true
+  on:
+    tags: true
