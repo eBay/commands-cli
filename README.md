@@ -1,5 +1,6 @@
 # commands-cli
 
+[ ![Download](https://api.bintray.com/packages/ebay/maven-oss/commands-cli/images/download.svg) ](https://bintray.com/ebay/maven-oss/commands-cli/_latestVersion)
 [![Build Status](https://travis-ci.org/eBay/commands-cli.svg?branch=master)](https://travis-ci.org/eBay/commands-cli)
 [![Code Quality](https://api.codacy.com/project/badge/Grade/1b1f6836a8b74f56b212f53b281215ee)](https://www.codacy.com/app/eBay/commands-cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eBay/commands-cli&amp;utm_campaign=Badge_Grade)
 [![Code Coverage](https://api.codacy.com/project/badge/Coverage/1b1f6836a8b74f56b212f53b281215ee)](https://www.codacy.com/app/eBay/commands-cli?utm_source=github.com&utm_medium=referral&utm_content=eBay/commands-cli&utm_campaign=Badge_Coverage)
