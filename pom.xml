@@ -152,4 +152,12 @@
     </plugins>
   </build>
 
+  <distributionManagement>
+    <repository>
+      <id>bintray-maven-repo</id>
+      <!--suppress MavenModelInspection -->
+      <url>https://api.bintray.com/maven/${env.BINTRAY_REPO_SLUG}/commands-cli/;publish=${env.BINTRAY_PUBLISH};override=${env.BINTRAY_OVERRIDE}</url>
+    </repository>
+  </distributionManagement>
+
 </project>

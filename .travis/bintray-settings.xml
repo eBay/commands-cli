@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <servers>
+    <server>
+      <id>bintray-maven-repo</id>
+      <username>${env.BINTRAY_USER}</username>
+      <password>${env.BINTRAY_API_KEY}</password>
+    </server>
+  </servers>
+
+  <profiles>
+    <profile>
+      <id>default-bintray-publish</id>
+      <!-- Set default value for the BINTRAY_PUBLISH env variable if not defined -->
+      <activation>
+        <property>
+          <name>!env.BINTRAY_PUBLISH</name>
+        </property>
+      </activation>
+      <properties>
+        <env.BINTRAY_PUBLISH>0</env.BINTRAY_PUBLISH>
+      </properties>
+    </profile>
+    <profile>
+      <id>default-bintray-override</id>
+      <!-- Set default value for the BINTRAY_OVERRIDE env variable if not defined -->
+      <activation>
+        <property>
+          <name>!env.BINTRAY_OVERRIDE</name>
+        </property>
+      </activation>
+      <properties>
+        <env.BINTRAY_OVERRIDE>0</env.BINTRAY_OVERRIDE>
+      </properties>
+    </profile>
+  </profiles>
+
+</settings>

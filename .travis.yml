@@ -5,13 +5,15 @@ dist: precise
 jdk:
   - oraclejdk7
 before_install:
-  # Enable using aliases in a non-interactive bash script
-  # See: https://github.com/travis-ci/travis-ci/issues/2552
-  - shopt -s expand_aliases
-  # Since using JDK7 - prevent error downloading from Maven Central: Received fatal alert: protocol_version
-  # See: https://central.sonatype.org/articles/2018/May/04/discontinued-support-for-tlsv11-and-below/
-  - alias mvn='mvn -Dhttps.protocols=TLSv1.2'
-script: mvn verify -B
+  - chmod +x .travis/mvn
+install: .travis/mvn install -DskipTests=true -Dmaven.javadoc.skip=true
+script: .travis/mvn verify
 after_success:
   # -- Codacy --
-  - mvn codacy:coverage -B
+  - .travis/mvn codacy:coverage
+deploy:
+  provider: script
+  script: .travis/mvn deploy -s .travis/bintray-settings.xml -DskipTests
+  skip_cleanup: true
+  on:
+    tags: true
