@@ -6,6 +6,8 @@ jdk:
   - oraclejdk7
 before_install:
   - chmod +x .travis/mvn
+  - chmod +x .travis/bintray
+  - chmod +x .travis/deploy.sh
 install: .travis/mvn install -DskipTests=true -Dmaven.javadoc.skip=true
 script: .travis/mvn verify
 after_success:
@@ -13,7 +15,7 @@ after_success:
   - .travis/mvn codacy:coverage
 deploy:
   provider: script
-  script: .travis/mvn deploy -s .travis/bintray-settings.xml -DskipTests
+  script: .travis/deploy.sh
   skip_cleanup: true
   on:
     tags: true

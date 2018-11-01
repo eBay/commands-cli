@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+set -e
+
+function __usage {
+  echo "Utility for executing Bintray related operations"
+  echo ""
+  echo "  usage:  bintray CMD VERSION"
+  echo ""
+  echo "Commands:"
+  echo "  publish  Publish the given version"
+  echo "  sign     GPG sign the given version"
+  echo "  sync     Sync the given version to Maven Central"
+  echo ""
+}
+
+function __handle_help_requested {
+  if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    __usage
+    exit 0
+  fi
+  if [[ "$2" == "-h" ]] || [[ "$2" == "--help" ]]; then
+    __usage
+    exit 0
+  fi
+}
+
+function __assertNotEmpty {
+  if [[ "$2" == "" ]]; then
+    echo "$1 is required but is empty"
+    exit 1
+  fi
+}
+
+BINTRAY_PKG_PATH="${BINTRAY_REPO_SLUG}/commands-cli"
+
+function __curl_bintray {
+  curl -su ${BINTRAY_USER}:${BINTRAY_API_KEY} https://api.bintray.com/"$@"
+  echo ""
+}
+
+function __publish_version {
+  local version=$1
+  echo "Publishing version $version in Bintray..."
+  __curl_bintray content/${BINTRAY_PKG_PATH}/${version}/publish \
+   -XPOST \
+    -d '{"publish_wait_for_secs": -1}'
+}
+
+function __sign_version {
+  local version=$1
+  echo "Signing version $version in Bintray..."
+  __curl_bintray gpg/${BINTRAY_PKG_PATH}/versions/${version} \
+    -XPOST
+}
+
+function __sync_version {
+  local version=$1
+  echo "Syncing version $version from Bintray to Maven Central..."
+  __assertNotEmpty "SONATYPE_OSS_USER" ${SONATYPE_OSS_USER}
+  __assertNotEmpty "SONATYPE_OSS_PASS" ${SONATYPE_OSS_PASS}
+  __curl_bintray maven_central_sync/${BINTRAY_PKG_PATH}/versions/${version} \
+    -XPOST \
+    -d "{\"username\":\"$SONATYPE_OSS_USER\",\"password\":\"$SONATYPE_OSS_PASS\",\"close\":\"1\"}" \
+    -H 'Content-Type: application/json'
+}
+
+#########################################################
+
+__handle_help_requested $@
+
+cmd=$1
+version=$2
+__assertNotEmpty "CMD" ${cmd}
+__assertNotEmpty "VERSION" ${version}
+__assertNotEmpty "BINTRAY_REPO_SLUG" ${BINTRAY_REPO_SLUG}
+__assertNotEmpty "BINTRAY_USER" ${BINTRAY_USER}
+__assertNotEmpty "BINTRAY_API_KEY" ${BINTRAY_API_KEY}
+
+case "$cmd" in
+  publish)
+    __publish_version ${version}
+    ;;
+  sign)
+    __sign_version ${version}
+    ;;
+  sync)
+    __sync_version ${version}
+    ;;
+  *)
+    __usage
+    exit 1
+esac
