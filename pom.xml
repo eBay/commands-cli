@@ -10,6 +10,13 @@
   <name>Commands CLI</name>
   <packaging>jar</packaging>
 
+  <description>An opinionated extension to the Apache Commons CLI library which adds support for commands</description>
+  <url>https://github.com/eBay/commands-cli</url>
+  <scm>
+    <url>https://github.com/eBay/commands-cli</url>
+    <connection>scm:git:https://github.com/eBay/commands-cli</connection>
+  </scm>
+
   <developers>
     <developer>
       <id>yavraham</id>
@@ -78,6 +85,19 @@
         <executions>
           <execution>
             <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.4</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
             <goals>
               <goal>jar</goal>
             </goals>

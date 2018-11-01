@@ -6,7 +6,6 @@ Use of this source code is governed by an Apache-2.0-style
 license that can be found in the LICENSE.txt file or at
 http://www.apache.org/licenses/LICENSE-2.0.
 ************************************************************/
-
 package com.ebay.sd.commons.cli;
 
 import static com.ebay.sd.commons.cli.Utils.pad;
@@ -53,7 +52,6 @@ import org.apache.commons.cli.Options;
  *    bar   The bar command
  *    baz   The baz command
  * </pre>
- * </p>
  */
 public class UsageHelp {
 
