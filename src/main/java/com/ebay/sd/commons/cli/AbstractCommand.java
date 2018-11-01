@@ -6,7 +6,6 @@ Use of this source code is governed by an Apache-2.0-style
 license that can be found in the LICENSE.txt file or at
 http://www.apache.org/licenses/LICENSE-2.0.
 ************************************************************/
-
 package com.ebay.sd.commons.cli;
 
 import static java.util.Objects.requireNonNull;
@@ -34,6 +33,7 @@ public abstract class AbstractCommand implements Command {
    * Construct a command
    *
    * @param commandContext the command context
+   * @throws ParseException if the the input is invalid
    */
   protected AbstractCommand(CommandContext commandContext) throws ParseException {
     this.commandContext = requireNonNull(commandContext, "commandContext is required");

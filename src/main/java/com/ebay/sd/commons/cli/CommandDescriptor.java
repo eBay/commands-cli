@@ -6,7 +6,6 @@ Use of this source code is governed by an Apache-2.0-style
 license that can be found in the LICENSE.txt file or at
 http://www.apache.org/licenses/LICENSE-2.0.
 ************************************************************/
-
 package com.ebay.sd.commons.cli;
 
 import static java.lang.String.format;
@@ -29,8 +28,7 @@ import org.apache.commons.cli.ParseException;
  *         .addArgument(fileArg)
  *         .factory(fooCmdFactory)
  *         .build();
- *   </pre>
- * </p>
+ * </pre>
  */
 public class CommandDescriptor extends Descriptor {
 
@@ -105,7 +103,6 @@ public class CommandDescriptor extends Descriptor {
      * <li>Argument with unlimited values must be last</li>
      * <li>An optional argument (non-required) must be last</li>
      * </ul>
-     * </p>
      *
      * @param argument the argument to add
      * @return this builder

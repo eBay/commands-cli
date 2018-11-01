@@ -6,7 +6,6 @@ Use of this source code is governed by an Apache-2.0-style
 license that can be found in the LICENSE.txt file or at
 http://www.apache.org/licenses/LICENSE-2.0.
 ************************************************************/
-
 package com.ebay.sd.commons.cli;
 
 import static java.util.Objects.requireNonNull;
@@ -31,8 +30,7 @@ import org.apache.commons.cli.ParseException;
  *           .build()
  *           .main(args)
  *     }
- *   </pre>
- * </p>
+ * </pre>
  */
 public class CommandsCliMain {
 

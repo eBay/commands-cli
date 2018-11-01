@@ -6,7 +6,6 @@ Use of this source code is governed by an Apache-2.0-style
 license that can be found in the LICENSE.txt file or at
 http://www.apache.org/licenses/LICENSE-2.0.
 ************************************************************/
-
 package com.ebay.sd.commons.cli;
 
 import static java.util.Objects.requireNonNull;
@@ -36,6 +35,8 @@ public class CommandContext {
 
   /**
    * Get the parsed command line
+   *
+   * @return the command line
    */
   public CommandLine getCommandLine() {
     return commandLine;
@@ -43,6 +44,8 @@ public class CommandContext {
 
   /**
    * Get the resolved command route
+   *
+   * @return the command route
    */
   public CommandRoute getCommandRoute() {
     return commandRoute;
@@ -72,6 +75,7 @@ public class CommandContext {
    * Get a context value, or default value if was not set
    *
    * @param key the key that identifies the value to get
+   * @param defaultValue the default value to return in case a value is missing for the given <tt>key</tt>
    * @return the value, or default value
    */
   public Object getValue(String key, Object defaultValue) {
@@ -114,6 +118,7 @@ public class CommandContext {
    * If the argument has multiple values, the first value is returned.
    *
    * @param name the name of the argument
+   * @param defaultValue the default value to return in case a value is missing for the given <tt>name</tt>
    * @return the value, or default
    */
   public String getArgumentValue(String name, String defaultValue) {

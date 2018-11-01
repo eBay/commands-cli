@@ -6,7 +6,6 @@ Use of this source code is governed by an Apache-2.0-style
 license that can be found in the LICENSE.txt file or at
 http://www.apache.org/licenses/LICENSE-2.0.
 ************************************************************/
-
 package com.ebay.sd.commons.cli;
 
 import static java.util.Objects.requireNonNull;
@@ -26,16 +25,15 @@ import org.apache.commons.cli.Option;
  *       .description("The input file")
  *       .required()
  *       .build()
- *   </pre>
+ * </pre>
  * It is then can be added to the command descriptor using:
  * <pre>
  *     .addCommand(fileArg)
- *   </pre>
+ * </pre>
  * To get the argument value during command execution, use the {@link CommandContext}. For example:
  * <pre>
- *     String file = commandContext.getArgumentValue("FILE");
- *   </pre>
- * </p>
+ *   String file = commandContext.getArgumentValue("FILE");
+ * </pre>
  *
  * @see CommandDescriptor.Builder#addArgument(Argument)
  * @see CommandContext#getArgumentValue(String)
@@ -87,6 +85,8 @@ public class Argument implements NameDescriptionSupport {
 
   /**
    * Get whether this argument is defined as required
+   *
+   * @return <tt>true</tt> if this argument is required, <tt>false</tt> otherwise
    */
   public boolean isRequired() {
     return required;
@@ -98,6 +98,8 @@ public class Argument implements NameDescriptionSupport {
    * <p>
    * This is either a positive value (<tt>&gt;0</tt>) or equals to {@link #UNLIMITED_VALUES}.
    * </p>
+   *
+   * @return the multiplicity of this argument
    */
   public int getMultiplicity() {
     return multiplicity;
