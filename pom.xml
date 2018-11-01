@@ -6,9 +6,16 @@
 
   <groupId>com.ebay.sd.commons</groupId>
   <artifactId>commands-cli</artifactId>
-  <version>0.7.0</version>
+  <version>0.7.1-SNAPSHOT</version>
   <name>Commands CLI</name>
   <packaging>jar</packaging>
+
+  <description>An opinionated extension to the Apache Commons CLI library which adds support for commands</description>
+  <url>https://github.com/eBay/commands-cli</url>
+  <scm>
+    <url>https://github.com/eBay/commands-cli</url>
+    <connection>scm:git:https://github.com/eBay/commands-cli</connection>
+  </scm>
 
   <developers>
     <developer>
