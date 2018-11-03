@@ -198,7 +198,14 @@ public class Main {
   //...
 }
 ```
+ 
+----
 
+## Contributing
+
+For instructions on contributing to this project, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+**Maintainers** - for detailed instructions on how to release a new version, see [RELEASING.md](RELEASING.md).
   
 ----
   
